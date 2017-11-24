@@ -1,0 +1,63 @@
+<%- contentFor('body') %>
+<div class="m-grid__item m-grid__item--fluid m-wrapper">
+    <!-- BEGIN: Subheader -->
+    <div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title ">
+                    Edit Breed
+                </h3>
+            </div>
+            <div>
+                        <span class="m-subheader__daterange" id="m_dashboard_daterangepicker">
+                            <span class="m-subheader__daterange-label">
+                                <span class="m-subheader__daterange-title"></span>
+                                <span class="m-subheader__daterange-date m--font-brand"></span>
+                            </span>
+                        </span>
+            </div>
+        </div>
+    </div>
+    <!-- END: Subheader -->
+    <div class="m-content">
+        <div class="row">
+            <div class="col-md-4">
+                <!--begin::Portlet-->
+                <div class="m-portlet">
+                    <!--begin::Form-->
+                    <form class="m-form" action="/admin/species/breeds/edit-breed" method="post">
+                        <div class="m-portlet__body">
+                            <div class="m-form__section m-form__section--first">
+                                <div class="form-group m-form__group">
+                                    <label for="breed_name">
+                                        Name:
+                                    </label>
+                                    <input type="text" class="form-control m-input" id="breed_name" name="breed_name"
+                                           placeholder="Enter name here" value="<%= breed_name %>">
+                                    <input type="text" class="form-control m-input" name="breed_id" value="<%= breed_id %>"
+                                           style="display: none">
+                                    <input type="text" class="form-control m-input" name="species_id" value="<%= species_id %>"
+                                           style="display: none">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-portlet__foot m-portlet__foot--fit">
+                            <div class="m-form__actions m-form__actions">
+                                <button type="submit" class="btn btn-primary">
+                                    Submit
+                                </button>
+                                <button type="reset" class="btn btn-secondary">
+                                    Cancel
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <!--end::Form-->
+                </div>
+                <!--end::Portlet-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- contentFor('scripts') %>

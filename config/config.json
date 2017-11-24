@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "bogdanbucur",
+    "password": "l0standdamnd",
+    "database": "mapet",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "bogdanbucur",
+    "password": "l0standdamnd",
+    "database": "mapet",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "bogdanbucur",
+    "password": "l0standdamnd",
+    "database": "mapet",
+    "host": "146.185.178.206",
+    "dialect": "postgres"
+  }
+}

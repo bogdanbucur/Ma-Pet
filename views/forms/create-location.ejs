@@ -1,0 +1,235 @@
+<%- contentFor('body') %>
+<div class="m-grid__item m-grid__item--fluid m-wrapper">
+    <!-- BEGIN: Subheader -->
+    <div class="m-subheader ">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto">
+                <h3 class="m-subheader__title ">
+                    Create Location
+                </h3>
+            </div>
+            <div>
+                        <span class="m-subheader__daterange" id="m_dashboard_daterangepicker">
+                            <span class="m-subheader__daterange-label">
+                                <span class="m-subheader__daterange-title"></span>
+                                <span class="m-subheader__daterange-date m--font-brand"></span>
+                            </span>
+                        </span>
+            </div>
+        </div>
+    </div>
+    <!-- END: Subheader -->
+    <div class="m-content">
+        <div class="row">
+            <div class="col-md-12">
+                <!--begin::Portlet-->
+                <div class="m-portlet">
+                    <!--begin::Form-->
+                    <form class="m-form" action="/admin/locations/create-location" method="post">
+                        <div class="m-portlet__body">
+                            <div class="m-form__section m-form__section--first">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="m-portlet m-portlet--tab">
+                                            <div class="m-portlet__body">
+                                                <label for="location_name">
+                                                    Name:
+                                                </label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control m-input" id="location_name"
+                                                           name="location_name"
+                                                           placeholder="Enter location name">
+                                                    <input type="text" class="form-control m-input" name="location_id"
+                                                           value="" style="display: none">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="m-portlet m-portlet--tab">
+                                            <div class="m-portlet__body">
+                                                <form class="form-inline margin-bottom-10" action="#">
+                                                    <label for="m_gmap_8_address">
+                                                        Address:
+                                                    </label>
+                                                    <div class="input-group" id="wrapper">
+                                                        <input type="text" class="form-control" id="m_gmap_8_address"
+                                                               name="address" placeholder="Enter address">
+                                                    </div>
+                                                    <div id="m_gmap_8"></div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="m-portlet m-portlet--tab">
+                                            <div class="m-portlet__body">
+                                                <div class="form-group m-form__group">
+                                                    <label>
+                                                        Email address:
+                                                    </label>
+                                                    <input type="email" class="form-control m-input"
+                                                           placeholder="Enter email" name="email">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group m-form__group">
+                                            <div class="m-portlet m-portlet--tab">
+                                                <div class="m-portlet__body">
+                                                    <label>
+                                                        Phone number:
+                                                    </label>
+                                                    <div class="m-input-icon m-input-icon--left">
+                                                        <input type="text" class="form-control m-input"
+                                                               placeholder="Phone number" name="phone_number">
+                                                        <span class="m-input-icon__icon m-input-icon__icon--left">
+															<span>
+																<i class="la la-mobile"></i>
+															</span>
+														</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="m-portlet m-portlet--tab">
+                                            <div class="m-portlet__body">
+                                                <div class="form-group m-form__group">
+                                                    <label for="description">
+                                                        Description:
+                                                    </label>
+                                                    <textarea class="form-control m-input m-input--air" id="description"
+                                                              name="description" rows="3"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="m-portlet m-portlet--tab">
+                                            <div class="m-portlet__body">
+                                                <div class="form-group m-form__group">
+                                                    <label for="locationType">
+                                                        Location Type
+                                                    </label>
+                                                    <select class="form-control m-input m-input--air" id="locationType"
+                                                            name="location_type">
+                                                        <% Object.keys(types).forEach((key) => {
+                                                            let type = types[key]; %>
+                                                        <option value="<%= type.id %>"><%= type.name %></option>
+                                                        <% }) %>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="m-portlet m-portlet--tab">
+                                            <div class="m-portlet__body"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="m-portlet__foot m-portlet__foot--fit">
+                            <div class="m-form__actions m-form__actions">
+                                <div class="m-portlet m-portlet--tab">
+                                    <div class="m-portlet__body">
+                                        <button type="submit" class="btn btn-primary">
+                                            Submit
+                                        </button>
+                                        <button type="reset" class="btn btn-secondary">
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!--end::Form-->
+                </div>
+                <!--end::Portlet-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- contentFor('scripts') %>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKtJ55gXDoYdKrVhNDULOpmtA7ilAhJYo&libraries=places&callback=initAutocomplete"></script>
+<script>
+    function initAutocomplete() {
+
+        var map = new google.maps.Map(document.getElementById('m_gmap_8'), {
+            center: {lat: -33.8688, lng: 151.2195},
+            zoom: 13,
+            mapTypeId: 'roadmap'
+        });
+
+        // Create the search box and link it to the UI element.
+        var input = /** @type {HTMLInputElement} */
+            (document.getElementById('m_gmap_8_address').clone());
+        var searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener('bounds_changed', function () {
+            searchBox.setBounds(map.getBounds());
+        });
+
+        var markers = [];
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener('places_changed', function () {
+            var places = searchBox.getPlaces();
+
+            if (places.length == 0) {
+                return;
+            }
+
+            // Clear out the old markers.
+            markers.forEach(function (marker) {
+                marker.setMap(null);
+            });
+            markers = [];
+
+            // For each place, get the icon, name and location.
+            var bounds = new google.maps.LatLngBounds();
+            places.forEach(function (place) {
+                if (!place.geometry) {
+                    console.log("Returned place contains no geometry");
+                    return;
+                }
+                var icon = {
+                    url: place.icon,
+                    size: new google.maps.Size(71, 71),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(17, 34),
+                    scaledSize: new google.maps.Size(25, 25)
+                };
+
+                // Create a marker for each place.
+                markers.push(new google.maps.Marker({
+                    map: map,
+                    icon: icon,
+                    title: place.name,
+                    position: place.geometry.location
+                }));
+
+                if (place.geometry.viewport) {
+                    // Only geocodes have viewport.
+                    bounds.union(place.geometry.viewport);
+                } else {
+                    bounds.extend(place.geometry.location);
+                }
+            });
+            map.fitBounds(bounds);
+        });
+    }
+</script>
